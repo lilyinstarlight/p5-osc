@@ -15,7 +15,7 @@ $ npm start
 Include the socket.io.js and p5.osc.js libraries in the sketch document:
 
 ```html
-<script language="javascript" type="text/javascript" src="http://127.0.0.1:8081/socket.io/socket.io.js"></script>
+<script language="javascript" type="text/javascript" src="http://localhost:8081/socket.io/socket.io.js"></script>
 <script language="javascript" type="text/javascript" src="libraries/p5.osc.js"></script>
 ```
 

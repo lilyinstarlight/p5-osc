@@ -1,5 +1,8 @@
 var osc = require('node-osc'),
-    io = require('socket.io')(8081, {cors: {origin: true}});
+    http = require('http').createServer();
+    io = require('socket.io')(http, { cors: { origin: true } });
+
+http.listen(8081, 'localhost');
 
 io.on('connection', function (socket) {
   var oscServer, oscClient;

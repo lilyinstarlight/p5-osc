@@ -1,11 +1,13 @@
 (function (scope) {
   var socket, callbacks = {};
 
-  scope.setupOsc = function (oscPortIn, oscPortOut, oscHostIn, oscHostOut) {
-    oscHostIn = oscHostIn || '127.0.0.1';
-    oscHostOut = oscHostOut || '127.0.0.1';
+  scope.setupOsc = function (oscPortIn, oscPortOut, oscHostIn, oscHostOut, bridgeUrl) {
+    oscHostIn = oscHostIn || 'localhost';
+    oscHostOut = oscHostOut || 'localhost';
 
-    socket = io.connect('http://127.0.0.1:8081', { port: 8081, rememberTransport: false });
+    bridgeUrl = bridgeUrl || 'http://localhost:8081';
+
+    socket = io(bridgeUrl, { transports: ['websocket'] });
 
     socket.on('connect', function () {
       socket.emit('config', {
