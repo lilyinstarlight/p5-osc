@@ -25,7 +25,7 @@
       for (var idx = 0; idx < msgs.length; idx++) {
         var callback = callbacks[msgs[idx][0]];
         if (typeof callback !== 'undefined')
-          callback.apply(undefined, msgs[idx].splice(1));
+          callback(...msgs[idx].splice(1));
       }
     });
   }
