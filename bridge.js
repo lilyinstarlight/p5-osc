@@ -14,7 +14,7 @@ io.on('connection', function (socket) {
 
     oscClient.send('/status', socket.id + ' connected');
 
-    oscServer.on('message', function(msg, rinfo) {
+    oscServer.on('message', function (msg, rinfo) {
       socket.emit('message', msg);
       console.log('sent OSC message to WS', msg, rinfo);
     });
