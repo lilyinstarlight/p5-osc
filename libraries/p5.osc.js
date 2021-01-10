@@ -1,5 +1,5 @@
 (function (scope) {
-  var socket, callbacks = {};
+  let socket, callbacks = {};
 
   scope.setupOsc = function (oscPortIn, oscPortOut, oscHostIn, oscHostOut, bridgeUrl) {
     oscHostIn = oscHostIn || 'localhost';
@@ -17,15 +17,15 @@
     });
 
     socket.on('message', function (msg) {
-      var msgs;
+      let msgs;
 
       if (msg[0] === '#bundle')
         msgs = msg.slice(2);
       else
         msgs = [msg];
 
-      for (var idx = 0; idx < msgs.length; idx++) {
-        var callback = callbacks[msgs[idx][0]];
+      for (let idx = 0; idx < msgs.length; idx++) {
+        let callback = callbacks[msgs[idx][0]];
         if (typeof callback !== 'undefined')
           callback(...msgs[idx].splice(1));
       }

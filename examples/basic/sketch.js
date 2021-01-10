@@ -1,4 +1,4 @@
-var x = 50, y = 50;
+let x = 50, y = 50;
 
 function setup() {
 	createCanvas(400, 400);
